@@ -53,6 +53,12 @@ def main() -> None:
         level=getattr(logging, config.LOG_LEVEL.upper(), logging.INFO),
         format="%(asctime)s %(levelname)s %(name)s: %(message)s",
     )
+
+    import os
+
+    print("os.getenv TELEGRAM_BOT_TOKEN exists:", bool(os.getenv("TELEGRAM_BOT_TOKEN")))
+    print("config TELEGRAM_BOT_TOKEN exists:", bool(config.TELEGRAM_BOT_TOKEN))
+    
     if not config.TELEGRAM_BOT_TOKEN:
         raise SystemExit("TELEGRAM_BOT_TOKEN is not set")
 
